@@ -28,7 +28,7 @@ function App() {
 
   //fetch from backend/API + set state variable pokeList via setter:
   useEffect(() => {
-    axios.get("http://localhost:8088/pokemon")
+    axios.get("https://pokebackend.onrender.com/pokemon")
     .then(res => setPokeList(res.data.sort(compare)))
     .catch(err => console.log(err))
     //.then(() => ...) would always be executed
