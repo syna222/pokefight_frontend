@@ -2,11 +2,9 @@ import logo from '../src/Images/International_Pokémon_logo.png';
 import pokeball from '../src/Images/4889-pokeball.png'
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-
 import PokeBall from '../src/Images/pokeball.png';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function FightPage({pokeUser, pokeComp}){
@@ -15,6 +13,7 @@ export default function FightPage({pokeUser, pokeComp}){
     const [ altCompPoke, setAltCompPoke ] = useState();              //same pokemon as pokeComp but with enhanced data structure (from external API)
     const [ userPokeImage, setUserPokeImage ] = useState(PokeBall);  //default setting: image of pokeUser is set to PokeBall + reset if image can be fetched from external (second) API
     const [ compPokeImage, setCompPokeImage ] = useState(PokeBall);  //default setting: image of pokeComp is set to PokeBall + reset if image can be fetched from external (second) API
+    const ball = <img id="poke-pokeball" src={pokeball} alt="pokemon_ball"/>;
 
     //for pokeUser:
     useEffect(() => {
@@ -46,16 +45,6 @@ export default function FightPage({pokeUser, pokeComp}){
         .catch(err => console.log(err))
     }, []);
 
-    //console.log("test from fightpage, altUserPoke is: ", altUserPoke);
-    //console.log("test from fightpage, altCompPoke is: ", altCompPoke);
-
-
-
-
-
-
-
-
     function evaluate(){
         let userCounter = 0;
         let compCounter = 0;
@@ -80,7 +69,6 @@ export default function FightPage({pokeUser, pokeComp}){
         }
     }
 
-    const ball = <img id="poke-pokeball" src={pokeball} alt="pokemon_ball"/>;
     return(
     <>
         <img id="poke-logo" src={logo} alt="pokemon_logo"/>
@@ -116,39 +104,36 @@ export default function FightPage({pokeUser, pokeComp}){
                 <p>Speed: {pokeComp.base.Speed}</p>
             </div>
         </div>
-       
-<div class="container">
-
-<button onClick={handleClick} href="#" class="button button--hoo">
-    <div class="button__wrapper">
-        <span class="button__text">FIGHT </span>
+        <div class="container">
+            <button onClick={handleClick} href="#" class="button button--hoo">
+                <div class="button__wrapper">
+                    <span class="button__text">FIGHT </span>
+                    </div>
+                    <div class="characterBox">
+                    <div class="character wakeup">
+                    <div class="character__face"></div>
+                    </div>
+                    <div class="character wakeup">
+                    <div class="character__face"></div>
+                    </div>
+                    <div class="character">
+                    <div class="character__face"></div>
+                    </div>
+                    </div>
+            </button>
         </div>
-         <div class="characterBox">
-         <div class="character wakeup">
-        <div class="character__face"></div>
-        </div>
-        <div class="character wakeup">
-        <div class="character__face"></div>
-        </div>
-        <div class="character">
-        <div class="character__face"></div>
-        </div>
-        </div>
-</button>
-
-</div>
-        <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        />
+                <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                />
     </>
     );
 }

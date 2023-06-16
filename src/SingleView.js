@@ -4,22 +4,15 @@ import { Link } from 'react-router-dom';
 import logo from '../src/Images/International_Pokémon_logo.png';
 import pokeball from '../src/Images/4889-pokeball.png'
 
-
-
-// import { Button } from 'react-bootstrap';
-
 export default function SingleView({pokeList, setPokeUser, setPokeComp}){
 
-    const [ chosen, setChosen ] = useState(false); //does this need to be state variable?
-
+    const [ chosen, setChosen ] = useState(false);
     const {id} = useParams();
     
     //get pokemon with id:
-    const [pokeObj] = pokeList.filter((poke) => poke.id === parseInt(id));      //destructuring to get object from returned array
-    //console.log(pokeObj);
+    const [pokeObj] = pokeList.filter((poke) => poke.id === parseInt(id));
 
     //PROBLEM: WHEN SITE IS REFRESHED, pokeObj becomes undefined
-
 
     //function: upon clicking, the user sets statevar "pokemonUser" in parent component "App" which is passed down to component "FightPage"
     function handleClick(){
@@ -39,9 +32,7 @@ export default function SingleView({pokeList, setPokeUser, setPokeComp}){
         <>
             <img id="poke-logo" src={logo} alt="pokemon_logo"/>
             <div>
-            
             <h1>{ball}{pokeObj.name.english}{ball}</h1>
-            
             </div>
             <div>
                 {/* <p>Japanese name: {pokeObj.name.japanese}</p>
@@ -53,27 +44,23 @@ export default function SingleView({pokeList, setPokeUser, setPokeComp}){
                 <p>Speed Attack: {pokeObj.base["Sp. Attack"]}</p>
                 <p>Speed Defense: {pokeObj.base["Sp. Defense"]}</p>
                 <p>Speed: {pokeObj.base.Speed}</p>
-
                 <div class="container">
-
-                <button onClick={handleClick} href="#" class="button button--piyo">
-                    <div class="button__wrapper">
-                    <span class="button__text">Select: {pokeObj.name.english} </span>
-                    
-                        </div>
-                         <div class="characterBox">
-                         <div class="character wakeup">
-                        <div class="character__face"></div>
-                        </div>
-                        <div class="character wakeup">
-                        <div class="character__face"></div>
-                        </div>
-                        <div class="character">
-                        <div class="character__face"></div>
-                        </div>
-                        </div>
-                </button>
-
+                    <button onClick={handleClick} href="#" class="button button--piyo">
+                        <div class="button__wrapper">
+                        <span class="button__text">Select: {pokeObj.name.english} </span>
+                            </div>
+                            <div class="characterBox">
+                            <div class="character wakeup">
+                            <div class="character__face"></div>
+                            </div>
+                            <div class="character wakeup">
+                            <div class="character__face"></div>
+                            </div>
+                            <div class="character">
+                            <div class="character__face"></div>
+                            </div>
+                            </div>
+                    </button>
                 </div>
                 <div class='joinFight'>
                 {chosen && <Link id="fight-invite" to="/pokemon/fight">JOIN THE FIGHT!</Link>}</div>

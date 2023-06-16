@@ -6,12 +6,9 @@ export default function NameList({pokeList}){
 
     const ball = <img id="poke-pokeball" src={pokeball} alt="pokemon_ball"/>;
 
-
     return(
         <>
-            
             <img id="poke-logo" src={logo} alt="pokemon_logo"/>
-            
             <h1>Choose a pokemon from the list!</h1>
             {pokeList.map(poke => 
             <Link className="poke-list-item" to={"/pokemon/" + poke.id}>
@@ -22,10 +19,8 @@ export default function NameList({pokeList}){
                     </div>
                 </li>
             </Link>)} 
-            
         </>
     );
-
 }
 
 
