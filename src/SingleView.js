@@ -12,8 +12,6 @@ export default function SingleView({pokeList, setPokeUser, setPokeComp}){
     const [pokeObj] = pokeList.filter((poke) => poke.id === parseInt(id));
     const ball = <img id="poke-pokeball" src={pokeball} alt="pokemon_ball"/>;
 
-    //PROBLEM: WHEN SITE IS REFRESHED, pokeObj becomes undefined
-
     //function: upon clicking, the user sets statevar "pokemonUser" in parent component "App" which is passed down to component "FightPage"
     function handleClick(){
         setPokeUser(pokeObj);
