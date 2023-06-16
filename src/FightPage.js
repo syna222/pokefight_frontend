@@ -4,6 +4,7 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import PokeBall from '../src/Images/pokeball.png';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -71,7 +72,9 @@ export default function FightPage({pokeUser, pokeComp}){
 
     return(
     <>
-        <img id="poke-logo" src={logo} alt="pokemon_logo"/>
+        <Link to="/">
+            <img id="poke-logo" src={logo} alt="pokemon_logo"/>
+        </Link>
         <div id="rival-container">
             <div id="user-choice">
                 <h2>Your chosen pokemon is: </h2>

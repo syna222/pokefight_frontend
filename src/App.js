@@ -32,7 +32,6 @@ function App() {
 
   return (
     <div className="App">
-
       <Routes>
         <Route path="/" element={<NameList pokeList={pokeList}/>}/>
         <Route path="/pokemon/:id" element={<SingleView pokeList={pokeList} setPokeUser={setPokeUser} setPokeComp={setPokeComp}/>}/>  {/*ergibt routing überhaupt Sinn hier? */}

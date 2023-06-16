@@ -8,7 +8,9 @@ export default function NameList({pokeList}){
 
     return(
         <>
-            <img id="poke-logo" src={logo} alt="pokemon_logo"/>
+            <Link to="/">
+                <img id="poke-logo" src={logo} alt="pokemon_logo"/>
+            </Link>
             <h1>Choose a pokemon from the list!</h1>
             {pokeList.map(poke => 
             <Link className="poke-list-item" to={"/pokemon/" + poke.id}>

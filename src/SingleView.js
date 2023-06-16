@@ -8,9 +8,9 @@ export default function SingleView({pokeList, setPokeUser, setPokeComp}){
 
     const [ chosen, setChosen ] = useState(false);
     const {id} = useParams();
-    
     //get pokemon with id:
     const [pokeObj] = pokeList.filter((poke) => poke.id === parseInt(id));
+    const ball = <img id="poke-pokeball" src={pokeball} alt="pokemon_ball"/>;
 
     //PROBLEM: WHEN SITE IS REFRESHED, pokeObj becomes undefined
 
@@ -26,11 +26,11 @@ export default function SingleView({pokeList, setPokeUser, setPokeComp}){
         setChosen(true);
     }
 
-    const ball = <img id="poke-pokeball" src={pokeball} alt="pokemon_ball"/>;
-
     return(
         <>
-            <img id="poke-logo" src={logo} alt="pokemon_logo"/>
+            <Link to="/">
+                <img id="poke-logo" src={logo} alt="pokemon_logo"/>
+            </Link>
             <div>
             <h1>{ball}{pokeObj.name.english}{ball}</h1>
             </div>
